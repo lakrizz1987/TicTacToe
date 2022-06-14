@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="./icons8-arcade-64.png" title="tic tac toe icons" type="image/x-icon">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <h1>Tic Tac Toe</h1>
+            <sectoin class="buttons">
+                <button class="muteBtn">
+                    <i class="fa-solid fa-volume-low"></i>
+                </button>
+                <button class="playBtn" id="playGame">Play Game</button>
+            </sectoin>
+            
+        </nav>
+    </header>
+
+    <section class="score" id="scoreBox">
+        <span id="xScore">
+            X WINS !!!
+        </span>
+    </section>
+    
+    <article class="choose" id="chooseBox">
+        <span class="btnCh" id="xChoose">X</span>
+        <span id="chooseText">or</span>
+        <span class="btnCh" id="yChoose">O</span>
+    </article>
+
+    <div class="wraper">
+        <article class="main-container" id="main">
+            <section class="small-boxes" id="a1"></section>
+            <section class="small-boxes" id="a2"></section>
+            <section class="small-boxes" id="a3"></section>
+            <section class="small-boxes" id="b1"></section>
+            <section class="small-boxes" id="b2"></section>
+            <section class="small-boxes" id="b3"></section>
+            <section class="small-boxes" id="c1"></section>
+            <section class="small-boxes" id="c2"></section>
+            <section class="small-boxes" id="c3"></section>
+        </article>
+    </div>
+    
+    
+    <audio id="audio" src="./mehul-sharma-bifrost-ocean-drive.wav"></audio>
+    <script src="./app.js"></script>
+</body>
+
+</html>

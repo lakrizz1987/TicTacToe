@@ -1,0 +1,227 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Raleway&display=swap');
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css);
+
+html {
+    
+    box-sizing: border-box;
+
+}
+
+*,
+::before,
+::after {
+    box-sizing: inherit;
+}
+
+
+
+header {
+
+    position: relative;
+    width: 100%;
+    font-family: 'Raleway', sans-serif;
+    font-weight: bolder;
+    padding: 0;
+    font-size: 30px;
+    margin-bottom: 30px;
+
+}
+
+nav {
+
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: #405DFA;
+
+}
+
+h1 {
+
+    margin: 0;
+    color: white;
+
+}
+
+body {
+
+    height: 100vh;
+    margin: 0;
+    background: rgb(63, 94, 251);
+    background: linear-gradient(90deg, rgba(63, 94, 251, 1) 0%, rgba(252, 70, 107, 1) 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.container {
+
+    display: flex;
+    justify-content: space-around;
+
+}
+
+#chooseBox {
+
+    position: absolute;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 40px;
+    color: rgb(255, 255, 255);
+    background-color: rgba(61, 61, 61, 0.5);
+    display: none;
+    font-weight: bold;
+    margin-bottom: 10px;
+    width: 100vw;
+    height: 100vh;
+    justify-content: space-around;
+    align-items: center;
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 5px;
+    z-index: 1;
+
+}
+
+.btnCh {
+
+    display: inline-block;
+    border: 2px solid white;
+    border-radius: 10px;
+    padding: 20px 20px;
+
+}
+
+.btnCh:hover {
+
+    cursor: pointer;
+    transform: scale(1.85);
+
+}
+
+.wraper {
+
+    position: absolute;
+    top: 200px;
+
+}
+
+.main-container {
+
+    z-index: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    width: 400px;
+    height: 400px;
+    margin-bottom: 50px;
+
+}
+
+.small-boxes:hover {
+
+    transform: scale(1.05);
+    cursor: pointer;
+
+}
+
+.small-boxes {
+
+    display: flex;
+    width: 115px;
+    height: 115px;
+    border: 1px solid rgb(163, 163, 163);
+    border-radius: 12px;
+    color: white;
+    font-size: 80px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.buttons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+
+button.playBtn {
+    width: 150px;
+    margin: 10px;
+    font-size: 20px;
+    padding: 2px 7px 2px 7px;
+    border-radius: 15px;
+    cursor: pointer;
+    border: none;
+    color: #5680E9;
+    background-color: white;
+    box-shadow: -4px -1px 7px -6px rgba(255, 255, 255, 0.897);
+}
+
+button.muteBtn{
+    margin-right: 5px;
+    margin-left: 5px;
+    font-size: 17px;
+    width: 29px;
+    height: 29px;
+    border-radius: 50%;
+    border: none;
+    text-align: center;
+    color: #5680E9;
+    background-color: white;
+    box-shadow: -4px -1px 7px -6px rgba(255, 255, 255, 0.897);
+}
+
+button:hover {
+    cursor: pointer;
+    transform: scale(1.15);
+}
+
+
+.score {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 40px;
+    color: #9C52B4;
+    background-color: white;
+    display: flex;
+    font-weight: bold;
+    margin-bottom: 10px;
+    width: 200px;
+    justify-content: space-between;
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 5px;
+    animation: blinker 1.2s step-start infinite;
+}
+
+@keyframes blinker {
+    50% {
+        opacity: 0;
+    }
+}
+
+
+@media all and (max-width:520px) {
+    header {
+        font-size: 30px;
+    }
+
+    .main-container {
+        width: 300px;
+        height: 300px;
+    }
+
+    .small-boxes {
+        width: 90px;
+        height: 90px;
+    }
+
+    .wraper {
+        top: 250px;
+    }
+}
