@@ -73,6 +73,7 @@ btn.addEventListener('click', () => {
         isOn = false;
         wraperEl.removeEventListener('click', clickSound);
         endGame = false;
+        count = 0;
     }
 })
 
