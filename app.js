@@ -20,6 +20,7 @@ btnChoose.forEach(x => x.addEventListener('click', (e) => {
     startScreen.style.display = 'none';
 }))
 
+let endGame = false;
 let count = 0;
 let isDraw = false;
 let mark = '';
@@ -29,12 +30,12 @@ let audio = document.getElementById('audio');
 let btn = document.querySelector('button.playBtn');
 let muteBtn = document.querySelector('button.muteBtn');
 
-muteBtn.addEventListener('click',(e)=>{
-    if(volumeOn){
+muteBtn.addEventListener('click', (e) => {
+    if (volumeOn) {
         audio.muted = true;
         muteBtn.innerHTML = `<i class="fa-solid fa-volume-xmark"></i>`;
         volumeOn = false;
-    }else{
+    } else {
         audio.muted = false;
         muteBtn.innerHTML = `<i class="fa-solid fa-volume-low"></i>`;
         volumeOn = true;
@@ -62,7 +63,7 @@ btn.addEventListener('click', () => {
         c3Element.addEventListener('click', win);
         isOn = true;
 
-        wraperEl.addEventListener('click',clickSound);
+        wraperEl.addEventListener('click', clickSound);
     } else {
         btn.textContent = 'Play Game';
         document.querySelectorAll('.small-boxes').forEach(x => {
@@ -70,27 +71,31 @@ btn.addEventListener('click', () => {
             winBoxElement.style.display = 'none';
         })
         isOn = false;
-        wraperEl.removeEventListener('click',clickSound);
+        wraperEl.removeEventListener('click', clickSound);
+        endGame = false;
     }
 })
 
-function clickSound(){
+function clickSound() {
     clickAudio.play();
 }
 
 function checkWin(e) {
+
     if (isDraw) {
         winBoxElement.textContent = `DRAW !!!`;
         winBoxElement.style.display = 'flex';
         document.querySelectorAll('.small-boxes').forEach(x => {
             x.removeEventListener('click', win);
         })
+        endGame = true;
     } else {
         mark == 'X' ? winBoxElement.textContent = `X Wins !!!` : winBoxElement.textContent = `O Wins !!!`;
         winBoxElement.style.display = 'flex';
         document.querySelectorAll('.small-boxes').forEach(x => {
             x.removeEventListener('click', win);
         })
+        endGame = true;
     }
 }
 
@@ -135,14 +140,69 @@ function win(e) {
                 isDraw = true;
                 checkWin()
             }
-
         }
 
-        if (mark == 'X') {
-            mark = 'O';
-        } else {
-            mark = 'X';
-        }
     }
 
+    if (mark == 'X') {
+        mark = 'O';
+    } else {
+        mark = 'X';
+    }
+
+    if (!endGame) {
+        setTimeout(() => {
+            let arr = Array.from(document.querySelectorAll('.small-boxes')).filter(x => x.textContent == '');
+
+            arr[Math.floor(Math.random() * arr.length)].textContent = mark;
+            count++;
+
+            if ((a1Element.textContent == a2Element.textContent) && (a1Element.textContent == a3Element.textContent)) {
+                if (a1Element.textContent != '' && a2Element.textContent != '' && a3Element.textContent != '') {
+                    checkWin()
+                }
+            } else if ((b1Element.textContent == b2Element.textContent) && (b1Element.textContent == b3Element.textContent)) {
+                if (b1Element.textContent != '' && b2Element.textContent != '' && b3Element.textContent != '') {
+                    checkWin()
+                }
+            } else if ((c1Element.textContent == c2Element.textContent) && (c1Element.textContent == c3Element.textContent)) {
+                if (c1Element.textContent != '' && c2Element.textContent != '' && c3Element.textContent != '') {
+                    checkWin()
+                }
+            } else if ((a1Element.textContent == b1Element.textContent) && (c1Element.textContent == a1Element.textContent)) {
+                if (a1Element.textContent != '' && b1Element.textContent != '' && c1Element.textContent != '') {
+                    checkWin()
+                }
+            } else if ((a2Element.textContent == b2Element.textContent) && (c2Element.textContent == a2Element.textContent)) {
+                if (a2Element.textContent != '' && b2Element.textContent != '' && c2Element.textContent != '') {
+                    checkWin()
+                }
+            } else if ((a3Element.textContent == b3Element.textContent) && (c3Element.textContent == a3Element.textContent)) {
+                if (a3Element.textContent != '' && b3Element.textContent != '' && c3Element.textContent != '') {
+                    checkWin()
+                }
+            } else if ((a1Element.textContent == b2Element.textContent) && (a1Element.textContent == c3Element.textContent)) {
+                if (a1Element.textContent != '' && b2Element.textContent != '' && c3Element.textContent != '') {
+                    checkWin()
+                }
+            } else if ((a3Element.textContent == b2Element.textContent) && (a3Element.textContent == c1Element.textContent)) {
+                if (a3Element.textContent != '' && b2Element.textContent != '' && c1Element.textContent != '') {
+                    checkWin()
+                }
+            } else {
+                if (count == 9) {
+                    isDraw = true;
+                    checkWin()
+                }
+            }
+
+            if (mark == 'X') {
+                mark = 'O';
+            } else {
+                mark = 'X';
+            }
+        }, 1000)
+    }
 }
+
+
